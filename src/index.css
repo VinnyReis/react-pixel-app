@@ -9,29 +9,62 @@ body {
   width: 100vw;
 }
 
-.canvas{
+.editor{
   width: 25%;
   margin: auto;
   margin-top: 100px;
 }
 
+.canvas{
+  width: 100%;
+}
+
+.color-palette{
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+.color-palette::after, .canvas::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.color-palette .color{
+  float: left;
+  width: 9.11%;
+  padding-top: 9.11%;
+  border-radius: 5px;
+  margin: 2% 2% 0 0;
+  cursor: pointer;
+}
+
+.color-palette .color.active{
+  box-shadow:0px 0px 0px 3px #fff inset;
+}
+
+.color-palette .color:hover{
+  transform: scale(1.18);
+}
+
 .pixel{
   box-shadow:-1px -1px 0 0 #d3d3d3 inset;
+  cursor: cell;
   float: left;
 }
 
 .pixel:hover{
-  filter: brightness(90%);
+  filter: brightness(85%);
 }
 
 @media (max-width: 920px){
-  .canvas{
+  .editor{
     width: 50%;
   }
 }
 
 @media (max-width: 640px){
-  .canvas{
+  .editor{
     width: 90%;
   }
 }
