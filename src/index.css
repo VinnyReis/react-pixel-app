@@ -6,20 +6,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #222b45;
+  width: 100vw;
 }
 
 .canvas{
-  width: fit-content;
+  width: 25%;
   margin: auto;
   margin-top: 100px;
 }
 
 .pixel{
-  border: 1px solid #d3d3d3;
-  border-width: 1px 1px 0 0;
+  box-shadow:-1px -1px 0 0 #d3d3d3 inset;
   float: left;
 }
 
 .pixel:hover{
   filter: brightness(90%);
+}
+
+@media (max-width: 920px){
+  .canvas{
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px){
+  .canvas{
+    width: 90%;
+  }
 }

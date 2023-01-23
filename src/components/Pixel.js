@@ -1,8 +1,9 @@
-function Pixel({ color, position, pixelMap }){
+function Pixel({ color, position, size, pixelMap }){
+
   return(
     <div
       className='pixel'
-      style={{ width: '30px', height: '30px', backgroundColor: color }}
+      style={{ width: `${size}%`, paddingTop: `${size}%`, backgroundColor: color }}
       onClick={() => pixelMap({ type: 'PAINT_PIXEL', position })}
     />
   )
