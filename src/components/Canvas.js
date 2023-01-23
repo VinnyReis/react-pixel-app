@@ -1,7 +1,7 @@
 import Row from './Row';
 import Pixel from './Pixel';
 
-function Canvas({ matrix, pixelMap }){
+function Canvas({ matrix, onPixelClick }){
 
   const pixelSize = 100 / matrix[0].length;
 
@@ -10,7 +10,7 @@ function Canvas({ matrix, pixelMap }){
       {matrix.map((row, y) => 
         <Row key={y}>
           {row.map((pixel, x) =>
-            <Pixel key={x} color={pixel} position={{x,y}} size={pixelSize} pixelMap={pixelMap}/>
+            <Pixel key={x} color={pixel} position={{x,y}} size={pixelSize} onPixelClick={onPixelClick}/>
           )}
         </Row>
       )}

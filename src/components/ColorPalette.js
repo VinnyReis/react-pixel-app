@@ -1,10 +1,8 @@
-import { useState, useEffect, useContext } from 'react';
-import { EditorContext } from './Editor';
+import React, { useState, useEffect } from 'react';
 
-function ColorPalette(){
+function ColorPalette(props){
 
-  const [selectedColor, setSelectedColor] = useState('#000000');
-  const editorContext = useContext(EditorContext);
+  const [selectedColor, setSelectedColor] = useState(props.selectedColor.current);
 
   const colors = [
     '#f44336', '#e91e63', '#9c27b0', '#673ab7','#3f51b5', '#2196f3',
@@ -13,19 +11,19 @@ function ColorPalette(){
   ];
 
   useEffect(() => {
-    editorContext.selectedColor.current = selectedColor;
-  }, [selectedColor])
+    props.selectedColor.current = selectedColor;
+  }, [selectedColor, props.selectedColor])
 
   return(
     <div className='color-palette'>
       {colors.map(color =>
         <div
           key={color}
-          className={`color ${color === selectedColor && 'active'}`}
+          className={`color ${color === selectedColor && 'selected'}`}
           style={{ backgroundColor: color}}
           onClick={() => setSelectedColor(color)}
         />
       )}
     </div>
   )
-} export default ColorPalette;
+} export default React.memo(ColorPalette);

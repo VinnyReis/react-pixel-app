@@ -13,19 +13,23 @@ const pixelMapReducer = (canvas, action) => {
 
 const createNewPixelMap = ({x, y}) => {
   return (new Array(y)).fill().map(() => 
-    new Array(x).fill('#fff')
+    new Array(x).fill('#ffffff')
   );
 }
 
 function Editor(){
   const [canvas, pixelMap] = useReducer(pixelMapReducer, createNewPixelMap({x:15, y:15}));
-  const selectedColor = useRef(0);
+  const selectedColor = useRef('#000000');
+
+  const handlePixelClick = (position) => {
+    pixelMap({ type: 'PAINT_PIXEL', position, color: selectedColor.current })
+  }
 
   return(
     <EditorContext.Provider value={{selectedColor}}>
       <div className='editor'>
-        <Canvas matrix={canvas} pixelMap={pixelMap}/>
-        <ColorPalette/>
+        <Canvas matrix={canvas} onPixelClick={handlePixelClick}/>
+        <ColorPalette selectedColor={selectedColor}/>
       </div>
     </EditorContext.Provider>
   )
