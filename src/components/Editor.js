@@ -30,6 +30,7 @@ function Editor(){
       <div className='editor'>
         <Canvas matrix={canvas} onPixelClick={handlePixelClick}/>
         <ColorPalette selectedColor={selectedColor}/>
+        <div className='credits'>Made with ❤️ by <a href='https://github.com/VinnyReis' target='_blank'>Vinícius Lima</a></div>
       </div>
     </EditorContext.Provider>
   )

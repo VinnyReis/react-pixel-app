@@ -9,6 +9,11 @@ body {
   width: 100vw;
 }
 
+a{
+  color: #fff;
+  font-weight: bold;
+}
+
 .editor{
   width: 25%;
   margin: auto;
@@ -57,6 +62,12 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.credits{
+  text-align: center;
+  margin: 10% 0;
+  color: #fff;
 }
 
 .pixel:hover{
